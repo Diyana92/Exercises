@@ -1,0 +1,9 @@
+{
+  "private": true,
+  "scripts": {
+    "test": "./node_modules/.bin/mocha --reporter spec"
+  },
+  "dependencies": {
+    "mocha": "^3.0.2"
+  }
+}
