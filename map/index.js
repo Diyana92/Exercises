@@ -1,15 +1,12 @@
-module.exports =  function map(obj, f, callback) {
+module.exports =  function map(obj, final_callback, context) {
   var k, result, v, i, arr;
   result = {};
-  var context = this;
   for (k in obj) {
-    v = obj[k];
-    arr=obj;
-    i=k;
-    result[k] = f(v, i, arr);
-    f(callback);
+        v = obj[k];
+        arr = obj;
+        i = k;
+        result[k] = final_callback.apply(context, [v, i, arr]);
   }
-  return result;
+    return result;
 };
-
 
