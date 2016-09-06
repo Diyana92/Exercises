@@ -1,14 +1,10 @@
-module.exports = function throttle(f, threshhold, scope) {
-  threshhold || (threshhold = 100);
-  var last,
-      deferTimer;
-  return function () {
-    var context = scope || this;
-
-    var now = +new Date,
-        args = arguments;
+module.exports = function throttle(f, threshhold) {
+  var last, deferTimer;
+  return function () {        
+    var now = +new Date;
+    var args = arguments; 
+    var context = this;
     if (last && now < last + threshhold) {
-      // hold on to it
       clearTimeout(deferTimer);
       deferTimer = setTimeout(function () {
         last = now;
