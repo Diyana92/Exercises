@@ -5,7 +5,6 @@ describe('once', function() {
   it("won't execute more than once", function() {
     var called = 0;
     var init = once(function() {
-        console.log('DIDI');
       return ++called;
     });
     init();
